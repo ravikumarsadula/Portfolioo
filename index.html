@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Kumar Sadula - Portfolio</title>
+    <style>
+        /* Modern CSS Reset & Bootstrap Integration */
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide In From Left Animation */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Zoom In Animation */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Blur In Animation */
+        @keyframes blurIn {
+            from {
+                filter: blur(20px);
+                opacity: 0;
+            }
+            to {
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        /* Flip In Animation */
+        @keyframes flipIn {
+            from {
+                transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+            to {
+                transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Rotate In Animation */
+        @keyframes rotateIn {
+            from {
+                transform: rotate(-180deg);
+                opacity: 0;
+            }
+            to {
+                transform: rotate(0);
+                opacity: 1;
+            }
+        }
+
+        /* Shake Animation */
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-10px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(10px);
+            }
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Slide Up Animation */
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Scale In Animation */
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Apply animations to sections */
+        .section {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .header {
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .project, .experience {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            text-rendering: optimizeLegibility;
+            -webkit-tap-highlight-color: transparent;
+            transition: all 0.3s ease-in-out;
+            
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Improved Text Selection */
+        ::selection {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Better Focus States */
+        :focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Bootstrap Overrides & Enhancements */
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        /* Advanced Features */
+        ::selection {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        :focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        @supports (scroll-behavior: smooth) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        /* Variables */
+        :root {
+            --primary-color: #313631;
+            --accent-color: #bcc0bd;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --section-spacing: 3rem;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            transition: all var(--transition-speed) ease;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--section-spacing);
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all var(--transition-speed);
+        }
+
+        .contact-info a:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .section {
+            margin-bottom: var(--section-spacing);
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-color);
+            animation: slideRight 2s infinite;
+        }
+
+        @keyframes slideRight {
+            0% { width: 0; }
+            50% { width: 50%; }
+            100% { width: 0; }
+        }
+
+        .project, .experience {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 10px 10px 0;
+            transition: all var(--transition-speed);
+        }
+
+        .project:hover, .experience:hover {
+            transform: translateX(10px);
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all var(--transition-speed);
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .skills-list {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>RaviKumar Sadula</h1>
+        <div class="contact-info">
+            <p>📍 Hyderabad, India | 📧 ravikumarsadula123@gmail.com | 📞 +91 9553249295</p>
+            <p>
+                <a href="https://www.linkedin.com/in/ravikumar-sadula">LinkedIn</a> |
+                <a href="https://github.com/ravikumar-sadula">GitHub</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>Enthusiastic Java Full-Stack Developer with strong knowledge of Java, Spring Boot, MySQL, JDBC, HTML, CSS, and JavaScript. Passionate about building scalable web applications and eager to apply skills in a professional environment. Strong problem-solving abilities and a quick learner, capable of adapting to new technologies.</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <ul>
+            <li><strong>Programming Languages:</strong> Java, JavaScript</li>
+            <li><strong>Frameworks & Libraries:</strong> Spring Boot, Hibernate, JDBC</li>
+            <li><strong>Frontend Technologies:</strong> HTML, CSS, JavaScript</li>
+            <li><strong>Databases:</strong> MySQL, Oracle</li>
+            <li><strong>Development Tools:</strong> Git, Maven, Postman</li>
+            <li><strong>Version Control:</strong> Git, GitHub</li>
+            <li><strong>Other Skills:</strong> REST APIs, Microservices, Unit Testing, Agile/Scrum</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <h3>B.Tech in Electrical and Electronics & Engineering</h3>
+        <p>Sree Dattha Group of Institutions | India | Graduated: 2022 | CGPA: 6.62</p>
+        <h3>Diploma</h3>
+        <p>Brilliant Group of Institutions | India | yop: 2018 | Percentage:76.69</p>
+        <h3>SSC</h3>
+        <p>Z.P.H.S Nemli | India | yop: 2015 | GPA: 8.0</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="project">
+            <h3>MYTEL Web Application</h3>
+            <ul>
+<li>Developed MYTEL application primarily for online mobile recharge and paying mobile bills.</li>                
+<li><b>Technologies: </b>Core Java, JDBC, JSP, MySQL.</li>            </ul>
+        </div>
+        <div class="project">
+<h3>SHOPYCLIQ E-Commerce Application</h3>            <ul>
+<li>Created an e-commerce website enabling users to browse products, add them to a shopping cart, and complete purchases. </li>              
+<li><b>Technologies: </b>Java, JDBC, JSP, Servlets, HTML, CSS, MySQL.</li>
+</ul>
+        </div>
+        <div class="project">
+            <h3>Student Management System</h3>            <ul>
+            <li>Implemented a student management system for managing student profiles and enrollments.</li>
+            <li><b>Technologies: </b>Spring Boot, HTML, CSS, Bootstrap, MySQL.</li>
+            </ul>
+                 
+        </div>
+    </div>
+   
+            
+</div>
+
+<div class="section">
+    <h2 class="section-title">Certifications</h2>
+    <ul>
+        <li><b>Java Full-Stack Development</b> Certification – Newzen Infotech</li>
+        <li>Spring Boot & Microservices – Newzen Infotech</li>
+    </ul>
+</div>
+    <div class="section">
+        <h2 class="section-title">Internships & Training</h2>
+        <div class="experience">
+            <h3>Java Development Intern - Newzen Infotech, Hyderabad</h3>
+            <ul>
+                <li>Developed RESTful APIs using Spring Boot for a real-world application.</li>
+                <li>Collaborated with a team to build a mini project and gained hands-on experience in Agile development.</li>
+            </ul>
+        </div>
+    </div>
+
+   
+
+    <div class="section">
+        <h2 class="section-title">Soft Skills</h2>
+        <p>Problem Solving | Analytical Thinking | Team Collaboration | Agile Methodologies | Communication</p>
+    </div>
+</body>
+</html>
